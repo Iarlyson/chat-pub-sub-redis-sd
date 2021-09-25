@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script>
+        var ws = new WebSocket('ws://'+window.document.location.host);
+        ws.onmessage=function(message){
+        var msgDiv=document.createElement("div");
+        msgDiv.createTextNode=message.data;
+        console.log(message.data)
+        document.getElementById('messages').appendChild(msgDiv)
+        }
+       
+        //sendMessage()
+        function sendMessage(){
+        
+        var message=document.getElementById('msgBox').value;
+        console.log(message);
+        
+        ws.send(message);
+        }
+</script>
+</head>
+<body>
+
+Message:<div id='messages'></div>
+<input type='text' placeholder='send a Message' id='msgBox'>
+<input type='button' onclick='sendMessage()' value='enviar'>
+</body>
+
+</html>
