@@ -1,13 +1,20 @@
 <html>
 <head>
+    <meta charset="utf-8">
+
     <link rel="stylesheet" href="index.css">
     <script>
         
          var person
         function myFunction() {
-  person = prompt("Please enter your name", "Harry Potter");
-  if (person != null) {
-    document.getElementById("demo").innerHTML =person
+  person = prompt("Por favor, insira seu nome", "Harry Potter");
+  if (!person == "") {
+      
+    document.getElementById("demo").innerHTML=person;
+  }
+  else{
+    myFunction() 
+
   }
 }  var cont;
         var name = document.getElementById.value;
@@ -15,13 +22,12 @@
         var content = document.createElement('div');
         content.classList.add('BoxChat');
         ws.onmessage=function(message){
-        console.log('teste',message.data ,cont);
+        console.log('teste',message ,cont);
         if(cont!=1){
             console.log('dd' ,cont);
         if(message.data != null){
         content.innerHTML += '<div Class='+'CardMessageConvidad'+'>'
             +'<div Class='+'ContentUsername'+'>'+
-                '<p Class='+'TextCard'+'>'+person+'</p></div>'+
                 '<div Class='+'TextMessage'+'>'+
                     '<p Class='+'TextCard'+'>'+message.data+'</p></div>'
                     '<div Class='+'ContentData'+'>'+
@@ -45,16 +51,27 @@
        
         //sendMessage()
         function sendMessage(){
-          
-            var content = document.getElementById('messages')
-        var message=document.getElementById('msgBox').value;
+        
+        if(!person){
+            myFunction();
+        }else{
+            var msg=document.getElementById('msgBox').value;
+            document.getElementById('msgBox').value='';
+            if(!msg){
+                alert("Escreva no campo menssagem para enviar.")
+            }else{
+        var data = new Date() 
+        var from = person;
+        var time = data.getHours() + ':' +  data.getMinutes() + ':' + data.getSeconds().toString();
+        var mensagem = `[${time}] [${from}]: ${msg}` ;
         cont=1;
         // content.innerHTML += message+'</br>';
-        console.log(message);
+        console.log(mensagem );
     content.scrollTo(0, 1000);
         
-        ws.send(message);
-        }
+        ws.send(mensagem );
+        }}
+    }
 </script>
 </head>
 <body>
@@ -62,9 +79,9 @@
 <div class="SideLeft">
     <p class="Title">CHAT-REDIS</p>
     <label class="TextLabelUser" id="demo"></label>
-    <button onclick="myFunction()">Try it</button>
+    <button onclick="myFunction()"class="InputMessage" >Configuração</button>
     <div class="CardChat">
-        <Img src="../assests//image/icon.png"/>
+        <img src="../assests/image/icon.png"/>
     </div>
 </div>
 <div class="SideRight">
@@ -72,8 +89,8 @@
     <div class="BoxChat"  id='messages'>
 
     </div>
-<input type='text' placeholder='send a Message' id='msgBox' class="InputMessage">
-<input type='button' onclick='sendMessage()' value='enviar'/>
+<input type='text' placeholder='Escreva sua mensagem' id='msgBox' class="InputMessage">
+<input type='button' onclick='sendMessage()' value='Enviar' class="InputMessage"/>
 </div>
 </div>
 
