@@ -1,0 +1,193 @@
+body {
+  
+  }
+  h1 {
+    color: blue;
+  }
+
+.Container{
+  font-family: 'Otomanopee One';
+  display: flex;
+  
+}
+
+.SideLeft{
+    position: absolute;
+    background-color: #7ba3e3;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    margin-top: 0;
+    padding-left: 10px;
+    color: #FFF;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+}
+
+.Logo{
+    text-align: center;
+    margin-bottom: 13px;
+}
+.LogoIcon{
+    width: 50px;
+}
+
+.SideRight{
+     background-color: #dce6f5;
+position: absolute;
+   display: flex;
+   flex-direction: column;
+    margin-left: 30%;
+    height: 100%;
+    width: 70%;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+.BoxChat{
+     background-color: #939599;
+   display: flex;
+   flex-direction: column;
+    height:90%;
+    width: 90%;
+    border-radius: 10px;
+    overflow-y: scroll;
+ 
+}
+
+.Icons{
+  width: 100px;
+    height: 47px;
+}
+
+.TextLabelUser{    
+    text-shadow: 1px 1px 1px #000;
+    font-size: 15px;
+    margin-bottom: 5%;
+}
+
+.TextLabel{  
+    margin-left: 10px;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 15px;
+}
+
+.Title{
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #000;
+    margin-bottom: 2%;
+}
+
+.Box{
+margin-left: 23%;
+    margin-top: 30%;
+}
+
+.TitlePartner{
+margin: 2px;
+text-align: left;
+font-size: 0.2rem;
+}
+
+.CardChat{
+display: flex;
+width: 80%;
+height: 30px;
+border-radius: 10px;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+align-items: center;
+padding: 10px;
+}
+
+.CardMessageUser{
+background-color: #7ba3e3;
+flex-direction: column;
+display: flex;
+max-width: 40%;
+min-width: 20%;
+height: 10%;
+margin: 10px;
+border-radius: 10px;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+padding: 1px;
+align-self: flex-end;
+}
+
+.CardMessageConvidad{
+background-color: #7be3b4;
+flex-direction: column;
+display: flex;
+max-width: 40%;
+min-width: 20%;
+height: 10%;
+margin: 10px;
+border-radius: 10px;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+padding: 5px;
+justify-self: flex-start;
+}
+
+.BoxInput{
+display: flex;
+flex-direction: row;
+margin: 2%;
+height: 40px;
+width: 90%;
+}
+
+.ContentUsername{
+color: #545454;
+margin-top: 0px;
+height: 15px;
+}
+.ContentData{
+margin-top: 0px;
+align-self: flex-end;
+}
+
+.TextCard{
+margin-top: -3px;
+    font-size: 15px;
+}
+
+.TextMessage{
+margin-top: 0px;
+font-size: 15px;
+}
+
+.TextMessageData{
+color: #545454;
+margin-top: -8px;
+font-size: 12px;
+}
+
+.IconChat{
+width: 40px;
+height: 40px;
+border-radius: 30px;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+}
+
+.InputMessage{
+width: 100%;
+height: 40px;
+border: 1px 1px 0px 0px;
+}
+
+.ButtonSend{
+width: 80px;
+height: 46px;
+background-color: #7ba3e3;
+color: white;
+border-radius: 0px 10px 10px 0px;
+border: 1px;
+}

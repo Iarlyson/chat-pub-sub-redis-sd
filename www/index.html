@@ -1,29 +1,82 @@
 <html>
 <head>
+    <link rel="stylesheet" href="index.css">
     <script>
+        
+         var person
+        function myFunction() {
+  person = prompt("Please enter your name", "Harry Potter");
+  if (person != null) {
+    document.getElementById("demo").innerHTML =person
+  }
+}  var cont;
+        var name = document.getElementById.value;
         var ws = new WebSocket('ws://'+window.document.location.host);
+        var content = document.createElement('div');
+        content.classList.add('BoxChat');
         ws.onmessage=function(message){
-        var msgDiv=document.createElement("div");
-        msgDiv.createTextNode=message.data;
-        console.log(message.data)
-        document.getElementById('messages').appendChild(msgDiv)
+        console.log('teste',message.data ,cont);
+        if(cont!=1){
+            console.log('dd' ,cont);
+        if(message.data != null){
+        content.innerHTML += '<div Class='+'CardMessageConvidad'+'>'
+            +'<div Class='+'ContentUsername'+'>'+
+                '<p Class='+'TextCard'+'>'+person+'</p></div>'+
+                '<div Class='+'TextMessage'+'>'+
+                    '<p Class='+'TextCard'+'>'+message.data+'</p></div>'
+                    '<div Class='+'ContentData'+'>'+
+                    '<p Class='+'TextMessageData'+'>'+'20:20'+'</p>'+'</div></div></br>';
+        document.getElementById('messages').append(content)
         }
+        cont=0
+    }else{
+        console.log('rodale' ,cont);
+        content.innerHTML += '<div Class='+'CardMessageUser'+'>'+
+                '<div Class='+'TextMessage'+'>'+
+                    '<p Class='+'TextCard'+'>'+message.data+'</p></div>'
+                    '<div Class='+'ContentData'+'>'+
+                    '<p Class='+'TextMessageData'+'>'+'20:20'+'</p>'+'</div></div></br>';
+        document.getElementById('messages').append(content)
+    }
+
+    cont=0
+    
+    }
        
         //sendMessage()
         function sendMessage(){
-        
+          
+            var content = document.getElementById('messages')
         var message=document.getElementById('msgBox').value;
+        cont=1;
+        // content.innerHTML += message+'</br>';
         console.log(message);
+    content.scrollTo(0, 1000);
         
         ws.send(message);
         }
 </script>
 </head>
 <body>
+    <div class="Container">
+<div class="SideLeft">
+    <p class="Title">CHAT-REDIS</p>
+    <label class="TextLabelUser" id="demo"></label>
+    <button onclick="myFunction()">Try it</button>
+    <div class="CardChat">
+        <Img src="../assests//image/icon.png"/>
+    </div>
+</div>
+<div class="SideRight">
+    <p class="Title">CHAT-REDIS</p>
+    <div class="BoxChat"  id='messages'>
 
-Message:<div id='messages'></div>
-<input type='text' placeholder='send a Message' id='msgBox'>
-<input type='button' onclick='sendMessage()' value='enviar'>
+    </div>
+<input type='text' placeholder='send a Message' id='msgBox' class="InputMessage">
+<input type='button' onclick='sendMessage()' value='enviar'/>
+</div>
+</div>
+
 </body>
 
 </html>
