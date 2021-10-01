@@ -1,5 +1,5 @@
 body {
-  
+    margin: 0% !important;
   }
   h1 {
     color: blue;
@@ -8,6 +8,7 @@ body {
 .Container{
   font-family: 'Otomanopee One';
   display: flex;
+  margin: 0px !important;
   
 }
 
@@ -46,15 +47,21 @@ position: absolute;
     justify-content: center;
 }
 .BoxChat{
-     background-color: #939599;
-   display: flex;
-   flex-direction: column;
-    height:90%;
-    width: 90%;
+    background-color: #939599;
+    display: flex;
+    flex-direction: column;
+    height:800px !important;
+    width: 900px !important;
     border-radius: 10px;
     overflow-y: scroll;
- 
 }
+.Box{
+
+    height:800px;
+    width: 900px;
+  
+}
+
 
 .Icons{
   width: 100px;
@@ -89,7 +96,11 @@ margin: 2px;
 text-align: left;
 font-size: 0.2rem;
 }
-
+.button{
+    width: 500px;
+    height: 50px;
+    align-items: center;
+}
 .CardChat{
 display: flex;
 width: 80%;
@@ -137,7 +148,6 @@ justify-self: flex-start;
 .BoxInput{
 display: flex;
 flex-direction: row;
-margin: 2%;
 height: 40px;
 width: 90%;
 }
@@ -184,8 +194,8 @@ border: 1px 1px 0px 0px;
 }
 
 .ButtonSend{
-width: 80px;
-height: 46px;
+width: 100px;
+height: 40px;
 background-color: #7ba3e3;
 color: white;
 border-radius: 0px 10px 10px 0px;

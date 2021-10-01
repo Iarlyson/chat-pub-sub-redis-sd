@@ -19,29 +19,29 @@
 }  var cont;
         var name = document.getElementById.value;
         var ws = new WebSocket('ws://'+window.document.location.host);
-        var content = document.createElement('div');
-        content.classList.add('BoxChat');
+     
+        var box= document.querySelector('.messages')
+    
         ws.onmessage=function(message){
+            var content = document.createElement('div');
+         
         console.log('teste',message ,cont);
         if(cont!=1){
             console.log('dd' ,cont);
         if(message.data != null){
-        content.innerHTML += '<div Class='+'CardMessageConvidad'+'>'
-            +'<div Class='+'ContentUsername'+'>'+
-                '<div Class='+'TextMessage'+'>'+
-                    '<p Class='+'TextCard'+'>'+message.data+'</p></div>'
-                    '<div Class='+'ContentData'+'>'+
-                    '<p Class='+'TextMessageData'+'>'+'20:20'+'</p>'+'</div></div></br>';
+            content.classList.add('CardMessageConvidad');
+        content.innerHTML +='<div Class='+'TextMessage'+'>'+
+                    '<p Class='+'TextCard'+'>'+message.data+'</p></div></br>';
         document.getElementById('messages').append(content)
         }
         cont=0
     }else{
         console.log('rodale' ,cont);
-        content.innerHTML += '<div Class='+'CardMessageUser'+'>'+
-                '<div Class='+'TextMessage'+'>'+
+        content.classList.add('CardMessageUser');
+        content.innerHTML += '<div Class='+'TextMessage'+'>'+
                     '<p Class='+'TextCard'+'>'+message.data+'</p></div>'
                     '<div Class='+'ContentData'+'>'+
-                    '<p Class='+'TextMessageData'+'>'+'20:20'+'</p>'+'</div></div></br>';
+                    '<p Class='+'TextMessageData'+'>'+'20:20'+'</p>'+'</div></br>';
         document.getElementById('messages').append(content)
     }
 
@@ -74,23 +74,23 @@
     }
 </script>
 </head>
-<body>
+<body style="margin-top: 0px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;">
     <div class="Container">
 <div class="SideLeft">
     <p class="Title">CHAT-REDIS</p>
     <label class="TextLabelUser" id="demo"></label>
-    <button onclick="myFunction()"class="InputMessage" >Configuração</button>
-    <div class="CardChat">
-        <img src="../assests/image/icon.png"/>
-    </div>
+    <button onclick="myFunction()" class="button" >Insira seu nome</button>
+ 
 </div>
 <div class="SideRight">
     <p class="Title">CHAT-REDIS</p>
     <div class="BoxChat"  id='messages'>
 
     </div>
+    <div class="BoxInput">
 <input type='text' placeholder='Escreva sua mensagem' id='msgBox' class="InputMessage">
-<input type='button' onclick='sendMessage()' value='Enviar' class="InputMessage"/>
+<button onclick='sendMessage()' value='Enviar'  class="ButtonSend" >Configuração</button>
+</div>
 </div>
 </div>
 
